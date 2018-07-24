@@ -11,10 +11,10 @@ function testStoreNotesInArray() {
 
 function testreturnHTML() {
   var notelist = new NoteList()
-  notelist.newNote("Cats")
-  notelist.newNote("Dogs")
+  notelist.newNote("twentycharactersasdxdsasretcarahcytnewt")
+  notelist.newNote("twentycharactersasdxdsasretcarahcytnewt")
   var noteListView = new NoteListView(notelist)
-  assert.isTrue(noteListView.returnHTML() === "<ul><li><div>Cats</div></li><li><div>Dogs</div></li></ul>")
+  assert.isTrue(noteListView.returnHTML() === "<ul><li><div>twentycharactersasdx</div></li><li><div>twentycharactersasdx</div></li></ul>")
 };
 
 testInstatiation()

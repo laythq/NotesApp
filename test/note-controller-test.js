@@ -19,7 +19,7 @@ function testInsertHTML () {
   // pass mock Document in instead of actual HTML document
   noteController.insertHTML(mockDocument)
   // now test is isolated from html document, #getElementById, and #innerHTML dependencies
-  assert.isTrue(mockDocument.mock.innerHTML === "<ul><li><div>Testing is Kool with Kees</div></li></ul>")
+  assert.isTrue(mockDocument.mock.innerHTML === "<ul><li><div>Testing is Kool with</div></li></ul>")
 }
 
 
