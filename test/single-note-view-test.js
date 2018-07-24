@@ -4,7 +4,7 @@ function testInstatiation() {
 }
 
 function testReturnsHTML() {
-  var note = new Note("Testing is the best");
+  var note = new Note(0, "Testing is the best");
   var singleNoteView = new SingleNoteView(note);
   assert.isTrue(singleNoteView.returnHTML() === "<div>Testing is the best</div>");
 }

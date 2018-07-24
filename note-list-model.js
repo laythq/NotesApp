@@ -13,7 +13,8 @@
   };
 
   NoteList.prototype.newNote = function(text) {
-    this.storeNote(new Note(text));
+    var id = this.notes.length;
+    this.storeNote(new Note(id, text));
   };
 
   exports.NoteList = NoteList;
