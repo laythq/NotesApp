@@ -26,8 +26,17 @@ function testreturnNote() {
   notelist = new NoteList()
   notelist.newNote("Testing is Kool with Kees")
   noteController = new NoteController(notelist)
-  // mockDocument = new MockDocument()
-  assert.isTrue(noteController.returnNote(0).object === "Testing is Kool with Kees")
+  mockDocument = new MockDocument()
+  noteController.returnNote(0, mockDocument)
+  assert.isTrue(mockDocument.mock.innerHTML === "Testing is Kool with Kees")
+}
+
+function testNewNote() {
+  notelist = new NoteList()
+  noteController = new NoteController(notelist)
+  noteController.newNote("New Note", mockDocument)
+  noteController.returnNote(0, mockDocument)
+  assert.isTrue(mockDocument.mock.innerHTML === "New Note")
 }
 
 
@@ -35,3 +44,4 @@ function testreturnNote() {
 
 testInsertHTML()
 testreturnNote()
+testNewNote()

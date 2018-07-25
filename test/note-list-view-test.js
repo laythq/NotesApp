@@ -24,7 +24,15 @@ function testreturnFullNote() {
   assert.isTrue(noteListView.returnFullNote(0) === "12345")
 }
 
+function testNewNote() {
+  var notelist = new NoteList()
+  noteListView = new NoteListView(notelist)
+  noteListView.newNote("678910")
+  assert.isTrue(noteListView.returnFullNote(0) === "678910")
+}
+
 testInstatiation()
 testStoreNotesInArray()
 testreturnHTML()
 testreturnFullNote()
+testNewNote()

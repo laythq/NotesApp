@@ -15,6 +15,13 @@
     this.object = this.noteListView.returnFullNote(number);
     this.page.getElementById('app').innerHTML = this.object;
   }
+
+  NoteController.prototype.newNote = function (note, page) {
+    this.page = page || document;
+    this.object = this.noteListView.newNote(note)
+    this.page.getElementById('app').innerHTML = this.object
+}
+
   exports.NoteController = NoteController;
 
 })(this);

@@ -20,5 +20,9 @@ NoteListView.prototype.returnFullNote = function(number) {
   return this.note.notes[number].text
 
 }
+
+NoteListView.prototype.newNote = function(note) {
+  this.note.newNote(note)
+}
   exports.NoteListView = NoteListView
 })(this)

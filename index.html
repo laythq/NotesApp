@@ -5,6 +5,10 @@
 
     <body>
       <div id='app'>Hello</div>
+      <form id="text" action="/submit" method="POST">
+        <input type="text" name="note">
+        <input type="submit" value="Submit">
+      </form>
     </body>
 
     <script src='note-model.js'></script>
@@ -12,10 +16,19 @@
     <script src='note-list-view.js'></script>
     <script src='note-controller.js'></script>
     <script>
+
     notelist = new NoteList()
-    notelist.newNote('asd')
     controller = new NoteController(notelist)
     controller.insertHTML()
+
+    document.addEventListener("submit", function(clickEvent) {
+      console.log(document.getElementById('text').elements[0].value)
+      clickEvent.preventDefault()
+      newNote = document.getElementById('text').elements[0].value
+      controller.newNote(newNote)
+      controller.insertHTML()
+      // controller.returnNote()
+    })
 
     makeUrlChangeShowNoteForCurrentPage();
 
@@ -31,7 +44,7 @@
     function getNoteFromUrl(location) {
       return location.hash.split("#notes/")[1];
     };
-    
+
     </script>
 
 </html>
