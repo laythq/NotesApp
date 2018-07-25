@@ -11,5 +11,27 @@
     <script src='note-list-model.js'></script>
     <script src='note-list-view.js'></script>
     <script src='note-controller.js'></script>
+    <script>
+    notelist = new NoteList()
+    notelist.newNote('asd')
+    controller = new NoteController(notelist)
+    controller.insertHTML()
+
+    makeUrlChangeShowNoteForCurrentPage();
+
+    function makeUrlChangeShowNoteForCurrentPage() {
+      window.addEventListener("hashchange", showNoteForCurrentPage);
+    };
+
+    function showNoteForCurrentPage() {
+      controller.returnNote(parseInt(getNoteFromUrl(location)));
+      console.log(getNoteFromUrl(location))
+    };
+
+    function getNoteFromUrl(location) {
+      return location.hash.split("#notes/")[1];
+    };
+    
+    </script>
 
 </html>

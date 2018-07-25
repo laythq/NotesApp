@@ -9,5 +9,7 @@ function testReturnsHTML() {
   assert.isTrue(singleNoteView.returnHTML() === "<div>Testing is the best</div>");
 }
 
+
+
 testInstatiation();
 testReturnsHTML();
