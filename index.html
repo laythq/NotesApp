@@ -5,9 +5,12 @@
 
     <body>
       <div id='app'>Hello</div>
-      <form id="text" action="/submit" method="POST">
+      <form id="showNote" action="/submit" method="POST">
         <input type="text" name="note">
         <input type="submit" value="Submit">
+      </form>
+      <form id="goBack" action="/" method="GET">
+        <input type="submit" value="Back">
       </form>
     </body>
 
@@ -21,10 +24,19 @@
     controller = new NoteController(notelist)
     controller.insertHTML()
 
-    document.addEventListener("submit", function(clickEvent) {
-      console.log(document.getElementById('text').elements[0].value)
+    var submit = document.getElementById('showNote')
+    var back = document.getElementById('goBack')
+
+    back.addEventListener("submit", function(clickEvent) {
+      console.log("asd")
       clickEvent.preventDefault()
-      newNote = document.getElementById('text').elements[0].value
+      controller.insertHTML()
+    })
+
+    submit.addEventListener("submit", function(clickEvent) {
+      console.log(document.getElementById('showNote').elements[0].value)
+      clickEvent.preventDefault()
+      newNote = document.getElementById('showNote').elements[0].value
       controller.newNote(newNote)
       controller.insertHTML()
       // controller.returnNote()
@@ -33,7 +45,8 @@
     makeUrlChangeShowNoteForCurrentPage();
 
     function makeUrlChangeShowNoteForCurrentPage() {
-      window.addEventListener("hashchange", showNoteForCurrentPage);
+      window.addEventListener("hashchange", showNoteForCurrentPage)
+      // clickEvent.preventDefault();
     };
 
     function showNoteForCurrentPage() {

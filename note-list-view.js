@@ -13,7 +13,7 @@
       array.push('<li><div><a href="#notes/' + notes[i].id + '">' + notes[i].text.substring(0,20) + '</a></div></li>')
     }
 
-    return "<ul>" + array.join("") + "</ul>"
+    return "<ul>" + array.join("") + '</ul> <a href="#notes"'
   }
 
 NoteListView.prototype.returnFullNote = function(number) {
